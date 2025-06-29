@@ -1,11 +1,12 @@
+// src/components/ui/Button.tsx
 import React from 'react';
-import { motion } from 'framer-motion';
+import { motion, HTMLMotionProps } from 'framer-motion';
 import { cn } from '../../utils/cn';
 
 type ButtonVariant = 'primary' | 'secondary' | 'accent' | 'outline' | 'ghost';
 type ButtonSize = 'sm' | 'md' | 'lg';
 
-interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+interface ButtonProps extends HTMLMotionProps<'button'> {
   variant?: ButtonVariant;
   size?: ButtonSize;
   icon?: React.ReactNode;
@@ -13,6 +14,8 @@ interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   isLoading?: boolean;
   children: React.ReactNode;
 }
+
+const MotionButton = motion.button;
 
 const Button: React.FC<ButtonProps> = ({
   variant = 'primary',
@@ -40,9 +43,10 @@ const Button: React.FC<ButtonProps> = ({
   };
 
   return (
-    <motion.button
+    <MotionButton
       whileHover={{ scale: 1.02 }}
       whileTap={{ scale: 0.98 }}
+      disabled={disabled || isLoading}
       className={cn(
         'rounded-lg font-medium transition-colors duration-200 flex items-center justify-center gap-2',
         variantClasses[variant],
@@ -50,7 +54,6 @@ const Button: React.FC<ButtonProps> = ({
         disabled || isLoading ? 'opacity-70 cursor-not-allowed' : '',
         className
       )}
-      disabled={disabled || isLoading}
       {...props}
     >
       {isLoading && (
@@ -75,14 +78,10 @@ const Button: React.FC<ButtonProps> = ({
           />
         </svg>
       )}
-      {icon && iconPosition === 'left' && !isLoading && (
-        <span className="w-5 h-5">{icon}</span>
-      )}
+      {icon && iconPosition === 'left' && !isLoading && <span className="w-5 h-5">{icon}</span>}
       {children}
-      {icon && iconPosition === 'right' && !isLoading && (
-        <span className="w-5 h-5">{icon}</span>
-      )}
-    </motion.button>
+      {icon && iconPosition === 'right' && !isLoading && <span className="w-5 h-5">{icon}</span>}
+    </MotionButton>
   );
 };
 

@@ -28,17 +28,18 @@ const Input: React.FC<InputProps> = ({
           </div>
         )}
         <input
-          className={cn(
-            'w-full bg-background-lighter border border-primary/30 rounded-lg p-3',
-            'text-text placeholder:text-text-muted',
-            'focus:outline-none focus:ring-2 focus:ring-interactive focus:border-transparent',
-            'transition-colors duration-200',
-            icon && 'pl-10',
-            error && 'border-error focus:ring-error',
-            className
-          )}
-          {...props}
-        />
+  className={cn(
+    'w-full bg-background-lighter border border-primary/30 rounded-lg p-3',
+    'text-text placeholder:text-text-muted',
+    'focus:outline-none focus:ring-2 focus:ring-interactive focus:border-transparent',
+    'transition-colors duration-200',
+    icon ? 'pl-10' : undefined,
+    error ? 'border-error focus:ring-error' : undefined,
+    className
+  )}
+  {...props}
+/>
+
       </div>
       {error && <p className="text-error text-xs">{error}</p>}
     </div>

@@ -108,7 +108,10 @@ export const useAppStore = create<AppState>((set) => ({
   
   setUser: (user) => set({ user, isAuthenticated: !!user }),
   
-  login: async (email, role) => {
+  login: async (email, password, role) => {
+    console.log(password); // or ignore it with a comment like:
+void password;
+
     // Simulating API call
     await new Promise(resolve => setTimeout(resolve, 1000));
     
