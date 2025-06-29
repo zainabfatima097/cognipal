@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Timer, ArrowLeft, Play, Check } from 'lucide-react';
+import { Timer, ArrowLeft, Play, } from 'lucide-react';
 import Button from '../components/ui/Button';
 import Card from '../components/ui/Card';
 

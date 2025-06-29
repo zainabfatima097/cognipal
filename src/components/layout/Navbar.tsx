@@ -39,7 +39,7 @@ const Navbar: React.FC = () => {
               Back
             </Button>
           )}
-          
+     </div>
           <div 
             className="flex items-center text-text cursor-pointer"
             onClick={() => navigate('/')}
@@ -66,21 +66,16 @@ const Navbar: React.FC = () => {
         {/* Right side - Controls and profile */}
         <div className="hidden md:flex items-center space-x-3">
           <Button
-            variant="ghost"
-            size="sm"
-            onClick={toggleSound}
-            icon={soundEnabled ? <Volume2 size={18} /> : <VolumeX size={18} />}
-            aria-label={soundEnabled ? "Mute sound" : "Enable sound"}
-          />
-          
-            <Button 
-               variant="ghost"
-               size="sm"
-               onClick={toggleVoiceAssistant}
-               icon={voiceAssistantEnabled ? <Mic size={18} /> : <MicOff size={18} />}
-               aria-label={voiceAssistantEnabled ? "Disable voice assistant" : "Enable voice assistant"}
-           />
-          
+  variant="ghost"
+  size="sm"
+  onClick={toggleSound}
+  icon={soundEnabled ? <Volume2 size={18} /> : <VolumeX size={18} />}
+  aria-label={soundEnabled ? "Mute sound" : "Enable sound"}
+>
+  <span className="sr-only">
+    {soundEnabled ? "Mute sound" : "Enable sound"}
+  </span>
+</Button>
           {isAuthenticated && (
             <Button 
               variant="ghost"
@@ -103,17 +98,17 @@ const Navbar: React.FC = () => {
           )}
         </div>
         
-        {/* Mobile menu toggle */}
-        <div className="md:hidden">
-          <Button
-            variant="ghost"
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
-            icon={isMenuOpen ? <X size={20} /> : <Menu size={20} />}
-            aria-label={isMenuOpen ? "Close menu" : "Open menu"}
-          />
-        </div>
-      </div>
-      
+        <Button
+  variant="ghost"
+  onClick={() => setIsMenuOpen(!isMenuOpen)}
+  icon={isMenuOpen ? <X size={20} /> : <Menu size={20} />}
+  aria-label={isMenuOpen ? "Close menu" : "Open menu"}
+>
+  <span className="sr-only">
+    {isMenuOpen ? "Close menu" : "Open menu"}
+  </span>
+</Button>
+
       {/* Mobile menu */}
       <AnimatePresence>
         {isMenuOpen && (
@@ -176,5 +171,4 @@ const Navbar: React.FC = () => {
     </header>
   );
 };
-
 export default Navbar;

@@ -10,7 +10,7 @@ import AchievementCard from '../components/achievements/AchievementCard'
 import { useAppStore } from '../store';
 
 const GamesHub: React.FC = () => {
-  const { games, achievements, user } = useAppStore();
+  const { games, achievements, } = useAppStore();
   
   // Filter for unlocked achievements
   const unlockedAchievements = achievements.filter(a => a.unlocked);
