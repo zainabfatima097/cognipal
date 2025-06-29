@@ -6,7 +6,7 @@ import Card from '../components/ui/Card';
 import Input from '../components/ui/Input';
 import Button from '../components/ui/Button';
 import GameCard from '../components/games/GameCard';
-import AchievementCard from '../components/achievements/AchievementCard';
+import AchievementCard from '../components/achievements/AchievementCard'
 import { useAppStore } from '../store';
 
 const GamesHub: React.FC = () => {

@@ -108,7 +108,7 @@ export const useAppStore = create<AppState>((set) => ({
   
   setUser: (user) => set({ user, isAuthenticated: !!user }),
   
-  login: async (email, password, role) => {
+  login: async (email, role) => {
     // Simulating API call
     await new Promise(resolve => setTimeout(resolve, 1000));
     

@@ -65,7 +65,7 @@ const Navbar: React.FC = () => {
         
         {/* Right side - Controls and profile */}
         <div className="hidden md:flex items-center space-x-3">
-          <Button 
+          <Button
             variant="ghost"
             size="sm"
             onClick={toggleSound}
@@ -73,13 +73,13 @@ const Navbar: React.FC = () => {
             aria-label={soundEnabled ? "Mute sound" : "Enable sound"}
           />
           
-          <Button 
-            variant="ghost"
-            size="sm"
-            onClick={toggleVoiceAssistant}
-            icon={voiceAssistantEnabled ? <Mic size={18} /> : <MicOff size={18} />}
-            aria-label={voiceAssistantEnabled ? "Disable voice assistant" : "Enable voice assistant"}
-          />
+            <Button 
+               variant="ghost"
+               size="sm"
+               onClick={toggleVoiceAssistant}
+               icon={voiceAssistantEnabled ? <Mic size={18} /> : <MicOff size={18} />}
+               aria-label={voiceAssistantEnabled ? "Disable voice assistant" : "Enable voice assistant"}
+           />
           
           {isAuthenticated && (
             <Button 
