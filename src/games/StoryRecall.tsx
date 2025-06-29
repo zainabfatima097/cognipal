@@ -98,7 +98,7 @@ const StoryRecall: React.FC = () => {
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [score, setScore] = useState(0);
   const [answers, setAnswers] = useState<number[]>([]);
-  const [readingTime, setReadingTime] = useState(60);
+  //const [readingTime, setReadingTime] = useState(60);
 
   const startGame = () => {
     const randomStory = stories[Math.floor(Math.random() * stories.length)];
